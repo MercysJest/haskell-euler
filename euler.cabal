@@ -1,0 +1,39 @@
+cabal-version: 1.12
+
+name:           euler
+version:        0.1.0.0
+author:         Wilson Nguyen
+build-type:     Simple
+
+library
+  exposed-modules:
+      NumberTheory
+  hs-source-dirs:
+      common
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+  default-extensions: BangPatterns
+
+executable 001
+  main-is: 001.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5
+    , euler
+  default-language: Haskell2010
+  default-extensions: BangPatterns
+
+executable 002
+  main-is: 002.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5
+    , euler
+  default-language: Haskell2010
