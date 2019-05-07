@@ -38,6 +38,7 @@ primes = 2:3:minus [5, 7..] (unionAll [[p*p, p*p+2*p..] | p <- tail primes])
 
 trialFactor' :: Integral a => a -> a -> [a]
 trialFactor' !n !p
+ | n == 1 = [1]
  | p' == n = [p']
  | otherwise = p':(trialFactor' (n `div` p') p')
    where p' = head $ [x | x <- [p, p+st..], n `mod` x == 0]
@@ -72,3 +73,11 @@ mRabin n
   | otherwise = and [(mrWit s d n) a | a <-prs]
     where (s,d) = mrExtract n
           prs = [2,3,5,7,11,13,17,19,23,29]
+
+factorial :: Integral a => a -> a
+factorial x = foldl' (*) 1 [1..x]
+
+binom :: Integral a => a -> a -> a
+binom n k = num `div` den
+  where num = foldl' (*) 1 [n, n-1..k+1]
+        den = factorial (n-k)
