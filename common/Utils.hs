@@ -1,7 +1,8 @@
 module Utils where
 
--- list of digits backwards
+-- list of digits
 getDigits :: Integral a => a -> [a]
-getDigits !n 
-  | n < 10 = [n]
-  | otherwise = n `mod` 10:getDigits (n `div` 10)
+getDigits = reverse . dig 
+  where dig !n
+          | n < 10 = [n]
+          | otherwise = n `mod` 10:dig (n `div` 10)

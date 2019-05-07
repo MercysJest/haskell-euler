@@ -60,3 +60,80 @@ executable 004
       base >=4.7 && <5, 
       euler
   default-language: Haskell2010
+
+executable 005
+  main-is: 005.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 006
+  main-is: 006.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 007
+  main-is: 007.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 008
+  main-is: 008.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 009
+  main-is: 009.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 010
+  main-is: 010.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 011
+  main-is: 011.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
