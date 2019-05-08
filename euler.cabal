@@ -181,3 +181,70 @@ executable 015
       base >=4.7 && <5, 
       euler
   default-language: Haskell2010
+
+executable 016
+  main-is: 016.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 017
+  main-is: 017.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 018
+  main-is: 018.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 019
+  main-is: 019.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 020
+  main-is: 020.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      euler
+  default-language: Haskell2010
+
+executable 021
+  main-is: 021.hs
+  hs-source-dirs:
+      execs
+  ghc-options:
+      -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -O2
+  build-depends:
+      base >=4.7 && <5, 
+      containers,
+      euler
+  default-language: Haskell2010

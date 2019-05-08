@@ -2,8 +2,9 @@ module NumberTheory where
 
 import Data.Maybe
 import Data.List
-import Data.List.Ordered
+import Data.List.Ordered (minus, unionAll)
 import Data.Bits
+import Utils
 
 -- Pollard Rho Algorithm
 -- Comment: has some type of memory leak, try out
@@ -81,3 +82,11 @@ binom :: Integral a => a -> a -> a
 binom n k = num `div` den
   where num = foldl' (*) 1 [n, n-1..k+1]
         den = factorial (n-k)
+
+getDivisors :: Integral a => a -> [a]
+getDivisors n
+  | n == 0 = error "0 has infinite divisors"
+  | n == 1 = [1]
+  | otherwise = 1:divs
+    where factors = trialFactor n
+          divs = map product' $ nub $ filter (not.null) $ subsequences $ factors
