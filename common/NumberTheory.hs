@@ -42,7 +42,7 @@ trialFactor' !n !p
  | n == 1 = [1]
  | p' == n = [p']
  | otherwise = p':(trialFactor' (n `div` p') p')
-   where p' = head $ [x | x <- [p, p+st..], n `mod` x == 0]
+   where p' = head $ [x | x <- [p, p+st..], n `rem` x == 0]
          st = if p == 2 then 1 else 2
 
 trialFactor :: Integral a => a -> [a]
@@ -53,8 +53,8 @@ trialFactor n = trialFactor' n 2
 mpow :: (Integral a, Bits a) => a -> a -> a -> a
 mpow !c !e !m
   | e == 0 = 1
-  | otherwise = (tmp * mpow (c'*c' `mod` m) (shiftR e 1) m) `mod` m
-    where c' = c `mod` m
+  | otherwise = (tmp * mpow (c'*c' `rem` m) (shiftR e 1) m) `rem` m
+    where c' = c `rem` m
           tmp = if testBit e 0 then c' else 1
 
 -- Miller Rabin Primality Test
@@ -68,12 +68,12 @@ mrExtract n = (genericLength br, shiftR (last br) 1)
   where br = takeWhile even $ iterate ((flip shiftR) 1) (n-1)
 
 mRabin :: (Integral a, Bits a) => a -> Bool
-mRabin n
+mRabin !n
   | n `elem` prs = True
-  | n == 1 || or [n `mod` p == 0 | p <- prs] = False
+  | n == 1 || or [n `rem` p == 0 | p <- prs] = False
   | otherwise = and [(mrWit s d n) a | a <-prs]
     where (s,d) = mrExtract n
-          prs = [2,3,5,7,11,13,17,19,23,29]
+          prs = [2,3,5,7]--,11,13,17,19,23,29]
 
 factorial :: Integral a => a -> a
 factorial x = foldl' (*) 1 [1..x]
@@ -90,3 +90,18 @@ getDivisors n
   | otherwise = 1:divs
     where factors = trialFactor n
           divs = map product' $ nub $ filter (not.null) $ subsequences $ factors
+
+getProperDivisors :: Integral a => a -> [a]
+getProperDivisors = init . getDivisors
+
+totient :: Integral a => a -> a
+totient n
+  | n == 1 = 1
+  | otherwise = foldl' (\acc (p, e) -> p^(e-1)*(p-1)*acc) 1 fac
+    where fac = map (\xs -> (head xs, length xs)) $ group $ trialFactor n
+
+getOrd :: (Integral a, Bits a) => a -> a -> a
+getOrd a m
+  | gcd a m /= 1 = error "a and m are not coprime"
+  | otherwise = fst $ head $ [tup | d <- divs, let tup = (d, mpow a d m), snd tup == 1]
+    where divs = getDivisors (totient m)
